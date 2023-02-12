@@ -1,0 +1,139 @@
+Exception1.java
+
+package day11;
+
+public class Exception1 {
+
+	public static void main(String[] args) {
+		int b = 10;
+		System.out.println(b);
+		try {
+			int a = 10/0;			//Arithmetic Exception
+		}
+		catch(ArithmeticException e){
+			System.out.println("Value cannot be divided by Zero : "+e);
+		}
+		int c = 9;
+		System.out.println(c);
+
+	}
+
+}
+-------------------------------------------
+Finally1.java
+
+package day11;
+
+import java.util.Scanner;
+
+public class Finally1 {
+
+	public static void main(String[] args) {
+		int b = 10;
+		System.out.println(b);
+		Scanner sc = new Scanner(System.in);
+		int d = sc.nextInt();
+		try {
+			int a = 10/d;			//Arithmetic Exception
+			System.out.println(a);
+		}
+		catch(ArithmeticException e){
+			System.out.println("Value cannot be divided by Zero : "+e);
+		}
+		finally {
+			System.out.println("Whatever happes i will get Executed");
+		}
+		int c = 9;
+		System.out.println(c);
+
+	}
+
+}
+-----------------------------------------------
+MultipleCatch.java
+
+package day11;
+
+public class MultipleCatch {
+	public static int divide(int x, int y) {
+		int z = 0;
+		z = x/y;
+		System.out.println("Result is : "+z);
+		return z;
+	}
+
+	public static void main(String[] args) {
+		int x, y, z;
+		try {
+			x = Integer.parseInt(args[0]);
+			y = Integer.parseInt(args[0]);
+			z = divide(x, 0);
+			System.out.println("z = "+z);
+		}catch(ArithmeticException | NumberFormatException | ArrayIndexOutOfBoundsException e) {
+			System.err.println("Error"+e.getMessage());
+		}catch(Exception e) {
+			System.err.println("zError is...."+e.getMessage());
+		}
+		System.out.println("Out side try and catch block");
+	}
+
+}
+-----------------------------------------------------
+NestedTry.java
+
+package day11;
+
+public class NestedTry {
+
+	public static void main(String[] args) {
+		int a[] = {1,2,3,4,5};
+		try {
+			int b = 10 / 2;
+			System.out.println(b);
+			try {
+				System.out.println(a[6]);
+			}catch (Exception e){
+				System.out.println(e);
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		System.out.println("Out of Try block");
+	}
+
+}
+----------------------------------------------------
+ThrowsException.java
+
+package day11;
+
+import java.util.Scanner;
+
+public class ThrowsException {
+	static int acceptNumber() {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		sc.close();
+		return n;
+	}
+	public static void main(String args[]) {
+		int per;
+		System.out.println("Enter the number");
+		per = acceptNumber();
+		try {
+			if(per<0) {
+		
+				throw new ArithmeticException("Percentage should not be negative");
+			}
+			else if (per>100) {
+				throw new ArithmeticException("Percentage should not be greater than 100");
+			}
+			else {
+				System.out.println("Valid percentage : "+per);
+			}
+		}catch(Exception e) {
+			System.err.println(e.getMessage());
+		}
+	}
+
+}
