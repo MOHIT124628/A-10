@@ -1,0 +1,152 @@
+ClassA.java
+
+package day8;
+
+public class ClassA {
+	void c() {
+		System.out.println("C in A class");
+	}
+	void d() {
+		System.out.println("D in A class");
+	}
+
+	public static void main(String[] args) {
+		ClassA a = new ClassA();
+		a.c();
+		a.d();
+	}
+
+}
+-----------------------------------------------------------
+ClassB.java
+
+package day8;
+
+public class ClassB extends ClassA {		//ClassB is Child & ClassA is my Parent class
+	void a() {
+		System.out.println("A in B class");
+	}
+	void b() {
+		System.out.println("B in B class");
+	}
+	void c() {								//method overriding
+		System.out.println("C in B class");
+	}
+	void d() {								//method overriding
+		System.out.println("D in B class");
+	}
+
+	public static void main(String[] args) {
+		ClassB b = new ClassB();
+		b.a();
+		b.b();
+		b.c();
+		b.d();
+	}
+
+}
+--------------------------------------------------------
+InstanceOf.java
+
+package day8;
+
+public class InstanceOf {
+
+	public static void main(String[] args) {
+		int a = 5;
+		int b = 10;
+		InstanceOf c = null;
+		InstanceOf i = new InstanceOf();		//object
+		
+		System.out.println(i instanceof InstanceOf);
+		System.out.println(c instanceof InstanceOf);
+
+	}
+
+}
+--------------------------------------------------------
+MethodOverloading1.java
+
+package day8;
+
+public class MethodOverloading1 {
+	void a() {
+		System.out.println("Normal method");
+	}
+	void a(int a) {
+		System.out.println("Single integer method");
+		System.out.println("Integer is : "+a);
+	}
+	void a(int b, int c) {
+		System.out.println("Double integer method");
+		System.out.println("Integer is : "+b);
+		System.out.println("Integer is : "+c);
+	}
+	void a(char a) {
+		System.out.println("Single Character method");
+		System.out.println("Character is : "+a);
+	}
+	void a(char a, int b) {
+		System.out.println("Character & Integer method");
+		System.out.println("Character is : "+a);
+		System.out.println("Integer is : "+b);
+	}
+	void a(int a, char b) {
+		System.out.println("Integer & Character method");
+		System.out.println("Integer is : "+a);
+		System.out.println("Character is : "+b);
+	}
+	public static void main(String[] args) {
+		MethodOverloading1 mo = new MethodOverloading1();
+		mo.a();
+		mo.a(5);
+		mo.a(5, 3);
+		mo.a('a');
+		mo.a('b', 123);
+		mo.a(234, 'd');
+		
+
+	}
+
+}
+--------------------------------------------------------------
+RunTime.java
+
+package day8;
+
+public class RunTime {
+	void a() {
+		System.out.println("Method A of Parent");
+	}
+	void b() {
+		System.out.println("Method B of Parent");
+	}
+	public static void main(String[] args) {
+		RunTime r = new RunTime();
+		r.a();
+		r.b();
+
+	}
+
+}
+--------------------------------------------------------------.
+RunTimeChild.java
+
+package day8;
+
+public class RunTimeChild extends RunTime{
+	void a() {
+		System.out.println("Method A of Child");
+	}
+	void b() {
+		System.out.println("Method B of Child");
+	}
+
+	public static void main(String[] args) {
+		RunTime r = new RunTimeChild();				//Upcasting
+		r.a();
+		r.b();
+
+	}
+
+}
