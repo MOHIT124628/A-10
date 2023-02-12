@@ -1,0 +1,128 @@
+MultiThreading.java
+
+package day12;
+
+public class MultiThreading extends Thread{
+	
+	int n;
+	String msg;
+	
+	public MultiThreading(int n, String msg) {
+		this.msg = msg;
+		this.n = n;
+	}
+	
+	public void run() {							//new thread
+		System.out.println("Thread is Running");
+		for(int i = 1; i <= n; i++) {
+			try {
+				Thread.sleep(3000);
+			}catch(InterruptedException e) {
+				System.err.println("Error: "+e.getMessage());
+			}
+			System.out.println(msg + i);
+		}
+	}
+}
+--------------------------------------------------------------
+MultiThreadingPriority.java
+
+package day12;
+
+class Chrome extends Thread{
+	public void run() {
+		for(int i = 0;i<5;i++)
+			System.out.println("Chrome thread ID is : "+Thread.currentThread().getId());
+	}
+}
+class Ppt extends Thread{
+	public void run() {
+		for(int i = 0;i<5;i++)
+			System.out.println("PPT thread ID is : "+Thread.currentThread().getId());
+	}
+}
+class Eclipse extends Thread{
+	public void run() {
+		for(int i = 0;i<5;i++)
+			System.out.println("Eclipse thread ID is : "+Thread.currentThread().getId());
+	}
+}
+public class MultiThreadingPriority {
+
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+		Chrome c = new Chrome();
+		Ppt p = new Ppt();
+		Eclipse e = new Eclipse();
+		c.start();
+		c.setPriority(Thread.MAX_PRIORITY);
+		p.start();
+		e.start();
+		c.stop();
+
+	}
+
+}
+----------------------------------------------------
+RunnableDemo.java
+
+package day12;
+
+public class RunnableDemo {
+
+	public static void main(String[] args) {
+		new UsingRunnable(30, 20, "Hi Everyone");
+		System.out.println("--------------");
+
+	}
+
+}
+-------------------------------------------------------
+ThreadDemo.java
+
+package day12;
+
+public class ThreadDemo {
+
+	public static void main(String[] args) {
+		MultiThreading t1 = new MultiThreading(5, "First");
+		MultiThreading t2 = new MultiThreading(10, "Second");
+		
+		t1.start();
+		t2.start();
+
+	}
+
+}
+---------------------------------------------------------
+UsingRunnable.java
+
+package day12;
+
+public class UsingRunnable implements Runnable{		//inheriting the Runnable interface
+	Thread t;
+	int h, l;
+	String msg;
+	
+	public UsingRunnable(int h, int l, String msg) {
+		this.h = h;
+		this.l = l;
+		this.msg = msg;
+		t = new Thread(this, "Child Thread");
+		t.start();
+	}
+
+@Override
+public void run() {								//abstract method inside runnable interface
+	for(int i = h; i > l; i--) {
+		try {
+			Thread.sleep(3000);
+		}catch(InterruptedException e) {
+			System.out.println("Error: "+e.getMessage());
+		}
+		System.out.println(msg + i);
+	}
+	
+}
+
+}
