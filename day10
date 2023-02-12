@@ -1,0 +1,39 @@
+PrimitiveNonPrimitive.java
+
+package day10;
+
+public class PrimitiveNonPrimitive {
+
+	public static void main(String[] args) {
+		int a = 5;					//primitive datatype
+		char b = 'a';				//primitive datatype
+		double c = 10.5;			//primitive datatype
+		String d = "Reven";			//non-primitive datatype
+
+	}
+
+}
+----------------------------------------------
+UnBoxing.java
+
+package day10;
+
+public class UnBoxing {
+
+	public static void main(String[] args) {
+		Integer a = 22;
+		int b = a.intValue();			//unboxing
+		System.out.println("Integer value is : "+a);
+		System.out.println("int value is : "+b);
+
+	}
+
+}
+-------------------------------------------------
+overriding.java
+
+package day10;
+
+public @interface overriding {
+
+}
