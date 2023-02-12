@@ -1,0 +1,155 @@
+Abstract.java
+
+package day6;
+
+public abstract class Abstract {
+	abstract void a();
+	abstract void b();
+	final void c() {
+		System.out.println("Method C");
+	}
+	
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+------------------------------------------------------------------------------------------
+Abstract2.java
+
+package day6;
+
+public class Abstract2 extends Abstract {
+	
+	void a() {
+		System.out.println("Method A");
+	}
+
+	void b() {
+		System.out.println("Method B");
+	}
+	public static void main(String[] args) {
+		Abstract2 obj = new Abstract2();
+		obj.a();
+		obj.b();
+		obj.c();
+		obj.c();
+
+	}
+
+}
+---------------------------------------------------------------------------------------
+Final.java
+
+package day6;
+
+public class Final {
+	final int a = 20;
+	void a() {
+		
+		System.out.println(a);
+	}
+	public static void main(String[] args) {
+		
+		Final f = new Final();
+		f.a();
+	}
+
+}
+----------------------------------------------------------------------------------------
+
+Inherit.java
+
+package day6;
+
+public class Inherit extends Package {
+
+	public static void main(String[] args) {
+		Inherit i = new Inherit();
+		i.b();
+		i.c();
+		i.a();
+
+	}
+
+}
+----------------------------------------------------------------------------------------
+Package.java
+
+package day6;
+
+public class Package {
+	final void a() {
+		System.out.println("Method A");
+	}
+	void b() {
+		System.out.println("Method b");
+	}
+	void c() {
+		System.out.println("Method c");
+	}
+	public static void main(String[] args) {
+		Package a = new Package();
+		a.a();
+
+	}
+
+}
+-----------------------------------------------------------------------------------------
+
+ScannerClass.java
+package day6;
+
+import java.util.Scanner;
+
+public class ScannerClass {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter a integer : ");
+		int a = s.nextInt();
+		System.out.println("Entered a integer : "+a);
+	}
+
+}
+-----------------------------------------------------------------------------------------
+StaticKeyword.java
+
+package day6;
+
+public class StaticKeyword {
+	int rollno;
+	String name;
+	static String college="MIT";
+	StaticKeyword(int r, String n){
+		rollno = r;
+		name = n;
+	}
+	void display(){
+		System.out.println("Roll no is :"+rollno);
+		System.out.println("Name is :"+name);
+		System.out.println("College name is :"+college);
+
+	}
+	static void d() {
+		
+	}
+	static {
+		System.out.println("I am a Static block");
+	}
+
+	public static void main(String[] args) {
+		StaticKeyword s1 = new StaticKeyword(111, "Reven");
+		StaticKeyword s2 = new StaticKeyword(112, "Jana");
+		StaticKeyword s3 = new StaticKeyword(113, "Jack");
+		s1.display();
+		s2.display();
+		s3.display();
+		System.out.println();
+		StaticKeyword.d();
+
+	}
+
+}
